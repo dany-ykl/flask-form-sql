@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <title>INSERT</title>
+</head>
+<body>
+    <form id="form" method="post">
+        <p>
+            <label for="code">code</label>
+            <input type="number" name="code" readonly>
+            </input>
+        </p>
+        <p>
+            <label for="description">description</label>
+            <input type="text" name='description'></input>
+        </p>
+        <p>
+            <label>enumname</label>
+            <select id='select' name='enumname'>
+                <option id='1'selected value='NoAuth'>NoAuth</option>
+                <option id='2' value='ApiKey'>ApiKey</option> 
+                <option id='3' value='BearerToken'>BearerToken</option> 
+                <option id='4'value='BasicAuth'>BasicAuth</option> 
+              </select>
+              <script>var select = document.getElementById('select');
+
+                select.onchange = function() {
+                  var indexSelected = select.selectedIndex,
+                      option = select.querySelectorAll('option')[indexSelected];
+                      
+                  var selectedId = option.getAttribute('id');
+                  
+                  if( selectedId == '2' ) {
+                    document.getElementById('authorizationjson').disabled=false;
+                  };
+                  if( selectedId == '3' ) {
+                    document.getElementById('autorizationtoken').disabled=false;
+                  };
+                  if( selectedId == '4' ) {
+                    document.getElementById('autorizationlogin').disabled=false;
+                    document.getElementById('autorizationpassword').disabled=false;
+                    }
+                };
+                </script>
+        </p>
+        <p>
+            <label for="httpaddress">httpaddress</label>
+            <input type="text" name='httpaddress'></input>
+        </p>
+        <p>
+            <label for="apibaseurl">apibaseurl</label>
+            <input type="text" name='apibaseurl'></input>
+        </p>
+        <p>
+            <label for="apischemeurl">apischemeurl</label>
+            <input type="text" name='apischemeurl'></input>
+        </p>
+        <p>
+            <label for="authorizationjson">authorizationjson</label>
+            <input id= 'authorizationjson' name='authorizationjson' type="text" disabled></input>
+        </p>
+        <p>
+            <label for="autorizationlogin">autorizationlogin</label>
+            <input id='autorizationlogin' type="text" name='autorizationlogin' disabled></input>
+        </p>
+        <p>
+            <label for="autorizationpassword">autorizationpassword</label>
+            <input name='autorizationpassword' id='autorizationpassword' type="text" disabled></input>
+        </p>
+        <p>
+            <label for="autorizationtoken">autorizationtoken</label>
+            <input name='autorizationtoken' id='autorizationtoken' type="text" disabled></input>
+        </p>
+        <p>
+            <label for="marked_true">True</label>
+            <input type="checkbox" id="marked_true" name="True" checked>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</body>
+</html>
