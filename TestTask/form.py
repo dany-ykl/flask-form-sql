@@ -1,7 +1,5 @@
-from types import NoneType
 from flask import request
 from flask import Flask, render_template, redirect, url_for
-from sqlalchemy import delete
 
 import service
 
