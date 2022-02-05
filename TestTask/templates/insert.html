@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{url_for('static', filename='js/script.js')}}"></script>
-    <title>INSERT</title>
-</head>
-<body>
+{% extends "index.html" %}
+{% block content %}
     <form id="form" method="post">
         <p>
             <label for="code">code</label>
@@ -34,15 +26,30 @@
                       
                   var selectedId = option.getAttribute('id');
                   
-                  if( selectedId == '2' ) {
-                    document.getElementById('authorizationjson').disabled=false;
+                  if (selectedId == '1') {
+                    document.getElementById('autorizationlogin').disabled=true;
+                    document.getElementById('autorizationpassword').disabled=true;
+                    document.getElementById('authorizationjson').disabled=true;
+                    document.getElementById('autorizationtoken').disabled=true;
                   };
-                  if( selectedId == '3' ) {
+
+                  if (selectedId == '2') {
+                    document.getElementById('autorizationlogin').disabled=true;
+                    document.getElementById('autorizationpassword').disabled=true;
+                    document.getElementById('authorizationjson').disabled=false;
+                    document.getElementById('autorizationtoken').disabled=true;
+                  };
+                  if (selectedId == '3') {
+                    document.getElementById('autorizationlogin').disabled=true;
+                    document.getElementById('autorizationpassword').disabled=true;
+                    document.getElementById('authorizationjson').disabled=true;
                     document.getElementById('autorizationtoken').disabled=false;
                   };
-                  if( selectedId == '4' ) {
+                  if (selectedId == '4') {
                     document.getElementById('autorizationlogin').disabled=false;
                     document.getElementById('autorizationpassword').disabled=false;
+                    document.getElementById('authorizationjson').disabled=true;
+                    document.getElementById('autorizationtoken').disabled=true;
                     }
                 };
                 </script>
@@ -83,5 +90,4 @@
             <button type="submit">Submit</button>
         </p>
     </form>
-</body>
-</html>
+{% endblock %}
