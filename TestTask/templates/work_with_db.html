@@ -1,6 +1,27 @@
-{% extends "index.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h2>Edit datasources</h2>
     <form id="form" method="post">
+        <div>
+        <input type="radio" id="1"
+        name="request_db" value="insert" required>
+       <label for="1">Insert</label>
+
+       <input type="radio" id="2"
+        name="request_db" value="update">
+       <label for="2">Update</label>
+       
+       <input type="radio" id="3"
+        name="request_db" value="delete">
+       <label for="3">Delete(description, apischemeurl)</label>
+    </div>
         <p>
             <label for="code">code</label>
             <input type="number" name="code" readonly>
@@ -90,4 +111,5 @@
             <button type="submit">Submit</button>
         </p>
     </form>
-{% endblock %}
+</body>
+</html>
